@@ -238,6 +238,11 @@ a:hover {
   color: var(--fade-hero-row-dark);
 }
 
+/* Last line: COMH letters only, full ink */
+.row-6:not(.empty) {
+  color: var(--ink);
+}
+
 .kicker {
   margin: 0;
   font-size: clamp(0.65rem, 1.8vw + 0.35rem, 0.75rem);
