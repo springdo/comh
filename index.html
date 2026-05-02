@@ -15,8 +15,41 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      try {
+        if (sessionStorage.getItem("comh_preview") === "1") {
+          document.documentElement.classList.add("preview-unlocked");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
+    <div
+      id="gate"
+      class="gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gate-title"
+    >
+      <form class="gate-form" id="gate-form" novalidate>
+        <p class="gate-brand" aria-hidden="true">comh</p>
+        <h2 id="gate-title" class="gate-title">Preview access</h2>
+        <p class="gate-hint">This site is private for now. Enter the password you were given.</p>
+        <label for="gate-password" class="visually-hidden">Password</label>
+        <input
+          type="password"
+          id="gate-password"
+          name="password"
+          class="gate-input"
+          autocomplete="current-password"
+          required
+        />
+        <p class="gate-error" id="gate-error" role="status" hidden></p>
+        <button type="submit" class="gate-submit">Continue</button>
+      </form>
+    </div>
+
+    <div id="site-content" class="site-content">
     <header class="hero">
       <div
         class="letter-grid"
@@ -145,6 +178,7 @@
     <footer class="footer">
       <p class="wordmark">comh</p>
     </footer>
+    </div>
 
     <script src="main.js" defer></script>
   </body>
