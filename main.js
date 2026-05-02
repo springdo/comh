@@ -7,6 +7,10 @@
       sessionStorage.setItem(STORAGE_KEY, "1");
     } catch (e) {}
     document.documentElement.classList.add("preview-unlocked");
+    var site = document.getElementById("site-content");
+    if (site) {
+      site.removeAttribute("hidden");
+    }
     var gate = document.getElementById("gate");
     if (gate) {
       gate.setAttribute("aria-hidden", "true");

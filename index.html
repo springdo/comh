@@ -21,6 +21,14 @@
           document.documentElement.classList.add("preview-unlocked");
         }
       } catch (e) {}
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          if (sessionStorage.getItem("comh_preview") === "1") {
+            var sc = document.getElementById("site-content");
+            if (sc) sc.removeAttribute("hidden");
+          }
+        } catch (e) {}
+      });
     </script>
   </head>
   <body>
@@ -30,6 +38,18 @@
       role="dialog"
       aria-modal="true"
       aria-labelledby="gate-title"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 2147483645;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        background: #f0f4f7;
+        min-height: 100vh;
+        min-height: 100dvh;
+      "
     >
       <form class="gate-form" id="gate-form" novalidate>
         <p class="gate-brand" aria-hidden="true">comh</p>
@@ -49,7 +69,7 @@
       </form>
     </div>
 
-    <div id="site-content" class="site-content">
+    <div id="site-content" class="site-content" hidden>
     <header class="hero">
       <div
         class="letter-grid"

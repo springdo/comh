@@ -40,15 +40,22 @@ html {
 
 /* Preview gate (client-side only; not real security) */
 html:not(.preview-unlocked) .site-content {
-  display: none;
+  display: none !important;
 }
 
 html.preview-unlocked .gate {
-  display: none;
+  display: none !important;
+}
+
+html:not(.preview-unlocked) {
+  height: 100%;
+  overflow: hidden;
 }
 
 html:not(.preview-unlocked) body {
+  min-height: 100%;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .gate {
@@ -59,7 +66,12 @@ html:not(.preview-unlocked) body {
   align-items: center;
   justify-content: center;
   padding: var(--pad-inline);
+  padding-top: max(var(--pad-inline), env(safe-area-inset-top, 0px));
+  padding-bottom: max(var(--pad-inline), env(safe-area-inset-bottom, 0px));
   background: var(--bg);
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
 }
 
 .gate-form {
