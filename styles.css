@@ -1,0 +1,227 @@
+/* FROM COMH — flyer-inspired palette & layout */
+
+:root {
+  --bg: #f0f4f7;
+  --ink: #1e3a4a;
+  --ink-muted: #34566b;
+  --fade-1: rgba(30, 58, 74, 0.12);
+  --fade-2: rgba(30, 58, 74, 0.22);
+  --fade-3: rgba(30, 58, 74, 0.35);
+  --fade-4: rgba(30, 58, 74, 0.48);
+  --fade-5: rgba(30, 58, 74, 0.62);
+  --fade-6: #1e3a4a;
+  --link: #34566b;
+  --link-hover: #1e3a4a;
+  --pad-inline: clamp(1.25rem, 5vw, 2.5rem);
+  --content-max: 42rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* —— Hero —— */
+.hero {
+  padding: clamp(2rem, 8vw, 4rem) var(--pad-inline) clamp(1.5rem, 4vw, 2.5rem);
+  max-width: calc(var(--content-max) + 4rem);
+  margin-inline: auto;
+}
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(6, auto);
+  gap: clamp(0.15rem, 1.5vw, 0.45rem)
+    clamp(0.2rem, 2vw, 0.55rem);
+  width: 100%;
+  max-width: min(100%, 22rem);
+  margin-bottom: clamp(1.25rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  /* Scale grid text down on very narrow screens */
+  font-size: clamp(0.7rem, 2.8vw + 0.35rem, 1.35rem);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.6em;
+  border-radius: 2px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.cell.empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.row-1 {
+  color: var(--fade-1);
+}
+.row-2 {
+  color: var(--fade-2);
+}
+.row-3 {
+  color: var(--fade-3);
+}
+.row-4 {
+  color: var(--fade-4);
+}
+.row-5 {
+  color: var(--fade-5);
+}
+.row-6 {
+  color: var(--fade-6);
+}
+
+.kicker {
+  margin: 0 0 0.5rem;
+  font-size: clamp(0.65rem, 1.8vw + 0.35rem, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 7vw + 0.5rem, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* —— Main —— */
+.main {
+  padding: 0 var(--pad-inline) clamp(3rem, 10vw, 5rem);
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+.section {
+  margin-bottom: clamp(2.25rem, 6vw, 3.5rem);
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(0.7rem, 1.5vw + 0.4rem, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.section p {
+  margin: 0 0 1rem;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.artist-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem 1.5rem;
+}
+
+@media (min-width: 28rem) {
+  .artist-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.artist-list li {
+  padding: 0.15rem 0;
+}
+
+/* Visit: stack on mobile, 2×2 from tablet */
+.visit-grid {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+@media (min-width: 32rem) {
+  .visit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.visit-label {
+  margin: 0 0 0.35rem;
+  font-size: clamp(0.65rem, 1.2vw + 0.45rem, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.visit-block p {
+  margin: 0;
+}
+
+/* —— Footer —— */
+.footer {
+  padding: clamp(2rem, 6vw, 3rem) var(--pad-inline);
+  text-align: right;
+  max-width: calc(var(--content-max) + 4rem);
+  margin-inline: auto;
+}
+
+.wordmark {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw + 0.5rem, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/* Grid hover enhancement (no layout shift) */
+.letter-grid.is-interactive .cell:not(.empty) {
+  cursor: default;
+}
+
+.letter-grid.is-interactive .cell:not(.empty):hover {
+  opacity: 0.85;
+}
