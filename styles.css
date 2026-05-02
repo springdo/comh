@@ -10,6 +10,8 @@
   --fade-4: rgba(30, 58, 74, 0.48);
   --fade-5: rgba(30, 58, 74, 0.62);
   --fade-6: #1e3a4a;
+  /* Hero rows 3 & 6: between fade-4 and fade-5 */
+  --fade-hero-row-dark: rgba(30, 58, 74, 0.56);
   --link: #34566b;
   --link-hover: #1e3a4a;
   --pad-inline: clamp(1.25rem, 5vw, 2.5rem);
@@ -223,23 +225,17 @@ a:hover {
   pointer-events: none;
 }
 
-.row-1 {
-  color: var(--fade-1);
-}
-.row-2 {
+/* Hero rows: FROM/COMH pairs share one tone; middle pair & bottom pair a step darker */
+.row-1,
+.row-2,
+.row-4,
+.row-5 {
   color: var(--fade-2);
 }
-.row-3 {
-  color: var(--fade-3);
-}
-.row-4 {
-  color: var(--fade-4);
-}
-.row-5 {
-  color: var(--fade-5);
-}
+
+.row-3,
 .row-6 {
-  color: var(--fade-6);
+  color: var(--fade-hero-row-dark);
 }
 
 .kicker {
